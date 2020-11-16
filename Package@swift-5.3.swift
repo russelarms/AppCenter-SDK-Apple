@@ -21,11 +21,7 @@ let package = Package(
         .library(
             name: "AppCenterCrashes",
             type: .static,
-            targets: ["AppCenterCrashes"]),
-        .library(
-            name: "AppCenterDistribute",
-            type: .static,
-            targets: ["AppCenterDistribute"]),
+            targets: ["AppCenterCrashes"])
     ],
     dependencies: [
         .package(url: "https://github.com/microsoft/PLCrashReporter.git", .upToNextMinor(from: "1.8.0")),
@@ -82,24 +78,35 @@ let package = Package(
                 .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS])),
                 .linkedFramework("AppKit", .when(platforms: [.macOS])),
             ]
-        ),
-        .target(
-            name: "AppCenterDistribute",
-            dependencies: ["AppCenter"],
-            path: "AppCenterDistribute/AppCenterDistribute",
-            exclude: ["Support"],
-            resources: [
-                .process("Resources/AppCenterDistribute.strings"),
-            ],
-            cSettings: [
-                .headerSearchPath("**"),
-                .headerSearchPath("../../AppCenter/AppCenter/**"),
-            ],
-            linkerSettings: [
-                .linkedFramework("Foundation"),
-                .linkedFramework("SafariServices", .when(platforms: [.iOS])),
-                .linkedFramework("UIKit", .when(platforms: [.iOS])),
-            ]
         )
     ]
 )
+
+#if os(iOS)
+package.products += [
+    .library(
+        name: "AppCenterDistribute",
+        type: .static,
+        targets: ["AppCenterDistribute"])
+]
+package.targets += [
+    .target(
+        name: "AppCenterDistribute",
+        dependencies: ["AppCenter"],
+        path: "AppCenterDistribute/AppCenterDistribute",
+        exclude: ["Support"],
+        resources: [
+            .process("Resources/AppCenterDistribute.strings"),
+        ],
+        cSettings: [
+            .headerSearchPath("**"),
+            .headerSearchPath("../../AppCenter/AppCenter/**"),
+        ],
+        linkerSettings: [
+            .linkedFramework("Foundation"),
+            .linkedFramework("SafariServices", .when(platforms: [.iOS])),
+            .linkedFramework("UIKit", .when(platforms: [.iOS])),
+        ]
+    )
+]
+#endif
