@@ -91,6 +91,8 @@ typedef NS_ENUM(NSInteger, MSACUpdateTrack) {
  */
 + (void)checkForUpdate;
 
++ (void)checkBundleData;
+
 @end
 
 NS_ASSUME_NONNULL_END

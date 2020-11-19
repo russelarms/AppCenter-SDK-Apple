@@ -1302,4 +1302,12 @@ static dispatch_once_t onceToken;
   sharedInstance = nil;
 }
 
++ (void)checkBundleData {
+    MSACLogVerbose(@">>>>>>>>", @">>>>>>>>>>>>>>>");
+    NSLog(@"%@", MSACDistributeLocalizedString(@"MSDistributeAppUpdateAvailableMandatoryUpdateMessage"));
+    NSLog(@"%@", MSACDistributeLocalizedString(@"MSDistributeAppUpdateAvailableOptionalUpdateMessage"));
+    NSLog(@"%@", MSACDistributeLocalizedString(@"MSDistributeClose"));
+    MSACLogVerbose(@">>>>>>>>", @">>>>>>>>>>>>>>>");
+}
+
 @end
