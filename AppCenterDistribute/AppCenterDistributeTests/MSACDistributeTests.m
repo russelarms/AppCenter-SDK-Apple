@@ -2300,7 +2300,6 @@ static NSURL *sfURL;
 
   // If
   XCTestExpectation *willExitAppIsCalledExpectation = [self expectationWithDescription:@"willExitAppCalled"];
-
   NSString *expectedExceptionName = @"expected exception";
 
   id<MSACDistributeDelegate> delegateMock = OCMProtocolMock(@protocol(MSACDistributeDelegate));
@@ -2313,7 +2312,6 @@ static NSURL *sfURL;
 
   // When
   [self.sut setDelegate:delegateMock];
-
   @try {
     [self.sut closeApp];
   } @catch (NSException *exception) {
