@@ -2296,16 +2296,16 @@ static NSURL *sfURL;
   XCTAssertEqual(strongDelegate, delegateMock);
 }
 
-- (void)testDelegateMethodWillCloseIsCalled {
+- (void)testDelegateWillExitAppIsCalled {
 
   // If
-  XCTestExpectation *willCloseIsCalledExpectation = [self expectationWithDescription:@"willCloseCalled"];
+  XCTestExpectation *willExitAppIsCalledExpectation = [self expectationWithDescription:@"willExitAppCalled"];
 
   NSString *expectedExceptionName = @"expected exception";
 
   id<MSACDistributeDelegate> delegateMock = OCMProtocolMock(@protocol(MSACDistributeDelegate));
-  OCMStub([delegateMock distributeWillClose:self.sut]).andDo(^(__unused NSInvocation *invocation) {
-    [willCloseIsCalledExpectation fulfill];
+  OCMStub([delegateMock distributeWillExitApp:self.sut]).andDo(^(__unused NSInvocation *invocation) {
+    [willExitAppIsCalledExpectation fulfill];
 
     // We raise an exception here to prevent the 'exit(0)' call, which is happening in MSACDistribute's 'closeApp'.
     [NSException raise:expectedExceptionName format:@"test"];
@@ -2329,7 +2329,7 @@ static NSURL *sfURL;
                                }];
 }
 
-- (void)testDelegateMethodReleaseAvailableWithDetailsIsCalled {
+- (void)testDelegateReleaseAvailableWithDetailsIsCalled {
 
   // If
   XCTestExpectation *releaseAvailableWithDetailsIsCalledExpectation =
