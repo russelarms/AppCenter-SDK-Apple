@@ -791,7 +791,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3C31C6C1E8E763600B288CE /* Build configuration list for PBXNativeTarget "SasquatchMacSwift" */;
 			buildPhases = (
-				F849248D2112FDFA00E14DBE /* Verify no buildSettings */,
 				D3C31C5C1E8E763600B288CE /* Sources */,
 				F845068C2317D7FC00A959D6 /* Remove the wrong framework */,
 				D3C31C5D1E8E763600B288CE /* Frameworks */,
@@ -1157,21 +1156,6 @@
 			shellScript = "\"${SRCROOT}/../Scripts/VerifyNoBuildSettings.swift\" ${PROJECT_NAME}.xcodeproj/project.pbxproj";
 			showEnvVarsInLog = 0;
 		};
-		F849248D2112FDFA00E14DBE /* Verify no buildSettings */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Verify no buildSettings";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Scripts/VerifyNoBuildSettings.swift\" ${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
-			showEnvVarsInLog = 0;
-		};
 		F8AA112B2112FEB20068B52C /* Verify no buildSettings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1483,6 +1467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = SasquatchMacSwift/Info.plist;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.appcenter.native.macos.sasquatch.swift;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

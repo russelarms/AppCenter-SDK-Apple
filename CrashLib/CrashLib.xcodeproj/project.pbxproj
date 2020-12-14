@@ -605,7 +605,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8065B57F1F4C3FF4004FF622 /* Build configuration list for PBXNativeTarget "CrashLibMac" */;
 			buildPhases = (
-				C2B2102B21B6C31C00F116BD /* Verify no buildSettings */,
 				8065B5731F4C3FF4004FF622 /* Sources */,
 				8065B5741F4C3FF4004FF622 /* Frameworks */,
 				8065B5751F4C3FF4004FF622 /* Headers */,
@@ -811,25 +810,6 @@
 			shellScript = "\"${SRCROOT}/../Scripts/VerifyNoBuildSettings.swift\" ${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
 			showEnvVarsInLog = 0;
 		};
-		C2B2102B21B6C31C00F116BD /* Verify no buildSettings */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Verify no buildSettings";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Scripts/VerifyNoBuildSettings.swift\" ${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -995,6 +975,7 @@
 			baseConfigurationReference = C2B2102421B6A9FF00F116BD /* macOS.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CrashLib/Info.plist;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.appcenter.CrashLibMac;
 			};
 			name = Release;
